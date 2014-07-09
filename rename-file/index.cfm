@@ -1,12 +1,19 @@
+<!--- this code was created by Mohd Norul Amin bin Mohd Zin --->
+
 <cfset fromPath = expandPath("from/*.*") />
 <cfset toPath = expandPath("to/*.*") />
 
 <cfset fromDirectory = GetDirectoryFromPath(fromPath) />
 <cfset toDirectory = GetDirectoryFromPath(toPath) />
 
+<!--- Check whether directory is exist or not --->
+<cfif directoryExists(fromDirectory)><cfelse><cfdirectory action="create" directory="#fromDirectory#" /></cfif>
+<cfif directoryExists(toDirectory)><cfelse><cfdirectory action="create" directory="#toDirectory#" /></cfif>
+
 
 <cfdirectory action="list" directory="#fromDirectory#" name="listfile" listInfo="name">
 
+<!--- Loop Filename --->
 <cfloop query="listfile">
 
   <cfset filename = listfile.name />
