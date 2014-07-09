@@ -1,5 +1,3 @@
-Start
-
 <cfset fromPath = expandPath("from/*.*") />
 <cfset toPath = expandPath("to/*.*") />
 
